@@ -3,9 +3,14 @@
 	session_start();
 
 	// Inclure les classes
-	require_once('classes/Securite.php');
-	require_once('classes/Utilisateur.php');
-	require_once('classes/Verifier.php');
+	// require_once('classes/Securite.php');
+	// require_once('classes/Utilisateur.php');
+	// require_once('classes/Verifier.php');
+
+	//Une fonction de php pour inclure une tous les classe dons nous avons bessoin
+	spl_autoload_register(function($classe){
+		require_once('classes/'.$classe.'.php');
+	});
 
 	if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])) {
 
